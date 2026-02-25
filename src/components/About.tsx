@@ -14,12 +14,12 @@ const About = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#b49bff] via-[#00d4ff] to-[#ff00cc] py-10"
+        className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#b49bff] via-[#00d4ff] to-[#ff00cc] py-10 text-center"
       >
         About Me
       </motion.h1>
 
-      <div className="flex flex-row items-center justify-center w-full px-[20px] md:px-[100px] gap-10 flex-wrap">
+      <div className="flex flex-row items-center justify-center w-full px-6 md:px-[100px] gap-10 flex-wrap">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}

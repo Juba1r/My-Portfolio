@@ -16,7 +16,7 @@ const Projects = () => {
         viewport={{ once: true }}
         className="flex flex-col items-center justify-center mb-10 w-full text-center"
       >
-        <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#b49bff] via-[#00d4ff] to-[#ff00cc] mb-4">
+        <h1 className="text-4xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#b49bff] via-[#00d4ff] to-[#ff00cc] mb-4 text-center">
           My Work
         </h1>
         <p className="text-gray-400 text-lg md:text-xl max-w-[600px] px-6">
@@ -26,22 +26,23 @@ const Projects = () => {
       </motion.div>
       <div className="h-full w-full flex flex-col md:flex-row gap-10 px-10 justify-center flex-wrap">
         <ProjectCard
-          src="/next.svg"
+          src="/portfolio-tech.jpg"
           title="Modern Next.js Portfolio"
           description="A futuristic portfolio built with Next.js 15, TailwindCSS v4, Framer Motion and Three.js, featuring interactive 3D elements."
         />
         <ProjectCard
-          src="/globe.svg"
+          src="/green-env.jpg"
           title="Green The Environment"
           description="A global NGO platform focused on environmental awareness and fundraising, built with Next.js and secure payment integration."
+          liveLink="https://greentheenvironment.vercel.app/"
         />
         <ProjectCard
-          src="/window.svg"
+          src="/pizza-paradise.jpg"
           title="Pizza Paradise"
           description="Interactive food ordering platform with real-time updates, smoke animations, and a mouth-watering UI."
         />
         <ProjectCard
-          src="/file.svg"
+          src="/cms-dashboard.jpg"
           title="CMS Dashboard"
           description="A comprehensive content management dashboard for managing digital assets and user data efficiently."
         />

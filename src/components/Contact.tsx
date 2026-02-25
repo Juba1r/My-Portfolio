@@ -25,13 +25,32 @@ const WhatsAppIcon = (props: any) => (
 const Contact = () => {
   const [status, setStatus] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("Sending...");
-    setTimeout(() => {
-      setStatus("Message sent successfully!");
-      setTimeout(() => setStatus(""), 3000);
-    }, 2000);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mqaeveoq", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setStatus("Message sent successfully!");
+        form.reset();
+        setTimeout(() => setStatus(""), 5000);
+      } else {
+        setStatus("Oops! There was a problem.");
+      }
+    } catch (error) {
+      setStatus("Oops! There was a problem.");
+    }
   };
 
   return (
@@ -46,7 +65,7 @@ const Contact = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1.2 }}
-        className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#b49bff] via-[#00d4ff] to-[#ff00cc] mb-20 text-center"
+        className="text-4xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#b49bff] via-[#00d4ff] to-[#ff00cc] mb-12 md:mb-20 text-center px-4"
       >
         Get In Touch
       </motion.h1>
@@ -184,6 +203,7 @@ const Contact = () => {
               <input
                 type="text"
                 id="name"
+                name="name"
                 placeholder="John Doe"
                 className="p-4 bg-foreground/5 border border-foreground/10 rounded-xl text-foreground focus:border-primary focus:bg-foreground/10 focus:outline-none transition-all"
                 required
@@ -199,6 +219,7 @@ const Contact = () => {
               <input
                 type="email"
                 id="email"
+                name="email"
                 placeholder="john@example.com"
                 className="p-4 bg-foreground/5 border border-foreground/10 rounded-xl text-foreground focus:border-secondary focus:bg-foreground/10 focus:outline-none transition-all"
                 required
@@ -213,6 +234,7 @@ const Contact = () => {
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows={5}
                 placeholder="Tell me about your project..."
                 className="p-4 bg-foreground/5 border border-foreground/10 rounded-xl text-foreground focus:border-accent focus:bg-foreground/10 focus:outline-none transition-all resize-none"

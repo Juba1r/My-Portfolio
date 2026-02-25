@@ -38,10 +38,10 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="col-span-1 md:col-span-2 flex flex-col gap-6">
             <a href="#" className="flex items-center gap-2 group w-fit">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
                 <span className="text-white font-black text-xl italic">J</span>
               </div>
-              <span className="font-bold text-2xl text-foreground tracking-tight">
+              <span className="font-bold text-xl md:text-2xl text-foreground tracking-tight">
                 Jubair <span className="text-primary">Ibn</span> Khaled
               </span>
             </a>
@@ -142,11 +142,6 @@ const Footer = () => {
 
         <div className="pt-12 border-t border-foreground/5 flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
           <p>&copy; 2026 Jubair Ibn Khaled. All rights reserved.</p>
-          <div className="flex items-center gap-2">
-            <span>Made with</span>
-            <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
-            <span>by the Developer</span>
-          </div>
         </div>
       </div>
     </footer>

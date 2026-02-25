@@ -46,12 +46,12 @@ const Experience = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#b49bff] via-[#00d4ff] to-[#ff00cc] mb-20 text-center"
+        className="text-4xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#b49bff] via-[#00d4ff] to-[#ff00cc] mb-12 md:mb-20 text-center px-4"
       >
         My Journey
       </motion.h1>
 
-      <div className="w-full max-w-[1000px] px-6 flex flex-col gap-12 relative">
+      <div className="w-full max-w-[1000px] px-6 flex flex-col gap-8 md:gap-12 relative">
         {/* Timeline Line */}
         <div className="absolute left-[31px] md:left-1/2 top-0 bottom-0 w-[2px] bg-foreground/10 -translate-x-1/2 hidden md:block" />
 

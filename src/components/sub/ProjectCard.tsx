@@ -9,9 +9,17 @@ interface Props {
   src: string;
   title: string;
   description: string;
+  liveLink?: string;
+  githubLink?: string;
 }
 
-const ProjectCard = ({ src, title, description }: Props) => {
+const ProjectCard = ({
+  src,
+  title,
+  description,
+  liveLink,
+  githubLink,
+}: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -43,14 +51,24 @@ const ProjectCard = ({ src, title, description }: Props) => {
         </div>
 
         <div className="flex items-center gap-4 mt-2">
-          <button className="flex items-center gap-2 px-4 py-2 bg-foreground/5 border border-foreground/10 rounded-xl text-foreground text-sm font-medium hover:bg-foreground/10 transition-all">
+          <a
+            href={githubLink || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 bg-foreground/5 border border-foreground/10 rounded-xl text-foreground text-sm font-medium hover:bg-foreground/10 transition-all cursor-pointer"
+          >
             <Github className="w-4 h-4" />
             Code
-          </button>
-          <button className="flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/30 rounded-xl text-primary text-sm font-medium hover:bg-primary/30 transition-all">
+          </a>
+          <a
+            href={liveLink || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/30 rounded-xl text-primary text-sm font-medium hover:bg-primary/30 transition-all cursor-pointer"
+          >
             <ExternalLink className="w-4 h-4" />
             Live Demo
-          </button>
+          </a>
         </div>
       </div>
 

@@ -19,7 +19,7 @@ const Skills = () => {
         viewport={{ once: true }}
         className="flex flex-col items-center justify-center mb-10 w-full text-center"
       >
-        <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#b49bff] via-[#00d4ff] to-[#ff00cc] mb-4">
+        <h1 className="text-4xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#b49bff] via-[#00d4ff] to-[#ff00cc] mb-4 text-center">
           My Tech Stack
         </h1>
         <p className="text-gray-400 text-lg md:text-xl max-w-[600px] px-6">

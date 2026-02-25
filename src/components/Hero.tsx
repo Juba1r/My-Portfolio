@@ -64,9 +64,9 @@ const Hero = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="flex flex-col items-center justify-center w-full px-5 md:px-20 z-[20]"
+        className="flex flex-col items-center justify-center w-full px-4 md:px-20 z-[20] py-20 md:py-0"
       >
-        <div className="flex flex-col gap-8 justify-center items-center text-center m-auto max-w-[900px]">
+        <div className="flex flex-col gap-6 md:gap-8 justify-center items-center text-center w-full max-w-[900px]">
           <motion.div
             variants={itemVariants}
             className="welcome-box py-[10px] px-[20px] border border-primary/30 rounded-full flex items-center gap-3 bg-glass backdrop-blur-md shadow-[0_0_15px_rgba(112,66,248,0.2)]"
@@ -79,7 +79,7 @@ const Hero = () => {
 
           <motion.h1
             variants={itemVariants}
-            className="text-6xl md:text-8xl font-black text-foreground leading-tight tracking-tight"
+            className="text-4xl sm:text-6xl md:text-8xl font-black text-foreground leading-tight tracking-tight px-2"
           >
             Crafting Digital
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent animate-text-shimmer">
@@ -89,24 +89,24 @@ const Hero = () => {
 
           <motion.p
             variants={itemVariants}
-            className="text-xl md:text-2xl text-foreground/60 max-w-[700px] leading-relaxed"
+            className="text-lg md:text-2xl text-foreground/60 max-w-[700px] leading-relaxed px-4 md:px-0"
           >
             Deeply passionate about building high-performance,
             <span className="text-primary font-semibold"> scalable</span>, and
             <span className="text-secondary font-semibold">
               {" "}
-              visisually stunning
+              visually stunning
             </span>{" "}
             applications that push the boundaries of the web.
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center justify-center gap-6 mt-8"
+            className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-4 md:mt-8 w-full"
           >
             <a
               href="#projects"
-              className="group relative flex items-center gap-2 px-10 py-4 bg-primary text-white font-bold rounded-2xl overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(112,66,248,0.5)] active:scale-95"
+              className="group relative flex items-center justify-center gap-2 px-8 md:px-10 py-4 bg-primary text-white font-bold rounded-2xl overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(112,66,248,0.5)] active:scale-95 w-full sm:w-auto"
             >
               <span className="relative z-10">Explore Work</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
