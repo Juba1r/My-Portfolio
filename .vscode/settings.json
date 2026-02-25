@@ -1,0 +1,27 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.mouseWheelZoom": true,
+  "files.autoSave": "afterDelay",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.largeFileOptimizations": false,
+  "powermode.presets": "magic",
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "git.confirmSync": false,
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.fontFamily": "'Cascadia Code', 'Cascadia Mono', 'Cascadia Italic', 'Josefin Sans', sans-serif",
+  "editor.fontLigatures": true,
+  "editor.fontWeight": "bold",
+  "workbench.colorTheme": "Night Owl",
+  "workbench.editorAssociations": {
+    "*.sqlite": "default"
+  },
+  "editor.unicodeHighlight.invisibleCharacters": false
+}
