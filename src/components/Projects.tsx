@@ -40,6 +40,7 @@ const Projects = () => {
           src="/pizza-paradise.jpg"
           title="Pizza Paradise"
           description="Interactive food ordering platform with real-time updates, smoke animations, and a mouth-watering UI."
+          liveLink="https://pizzaparadisepp.vercel.app/"
         />
         <ProjectCard
           src="/cms-dashboard.jpg"
