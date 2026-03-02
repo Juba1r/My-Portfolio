@@ -30,6 +30,7 @@ const WhatsAppIcon = (props: any) => (
     />
   </svg>
 );
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ModeToggle } from "./mode-toggle";
 
@@ -69,9 +70,13 @@ const Navbar = () => {
         >
           {/* Logo/Name */}
           <a href="#" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">
-              <span className="text-white font-black text-xl italic">J</span>
-            </div>
+            <Image
+              src="/JIK Logo.png"
+              alt="JIK Logo"
+              width={48}
+              height={48}
+              className="object-contain hover:scale-110 transition-transform duration-300"
+            />
             <span className="font-bold text-xl text-foreground tracking-tight hidden md:block transition-colors duration-300">
               Jubair <span className="text-primary">Ibn</span> Khaled
             </span>

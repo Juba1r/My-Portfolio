@@ -29,6 +29,7 @@ const WhatsAppIcon = (props: any) => (
   </svg>
 );
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -38,9 +39,13 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="col-span-1 md:col-span-2 flex flex-col gap-6">
             <a href="#" className="flex items-center gap-2 group w-fit">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
-                <span className="text-white font-black text-xl italic">J</span>
-              </div>
+              <Image
+                src="/JIK Logo.png"
+                alt="JIK Logo"
+                width={48}
+                height={48}
+                className="object-contain hover:scale-110 transition-transform duration-300"
+              />
               <span className="font-bold text-xl md:text-2xl text-foreground tracking-tight">
                 Jubair <span className="text-primary">Ibn</span> Khaled
               </span>
