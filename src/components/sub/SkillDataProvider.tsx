@@ -79,7 +79,7 @@ const SkillDataProvider = ({ src, width, height, index, name }: Props) => {
       <div className="relative group cursor-pointer w-28 h-28 md:w-36 md:h-36 rounded-3xl flex flex-col items-center justify-center bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary/50 transition-all duration-300 shadow-xl hover:shadow-primary/20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
         <div className="w-12 h-12 mb-3 relative group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-          {!imageError ? (
+          {src && !imageError ? (
             <Image
               src={src}
               alt={name}

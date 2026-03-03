@@ -3,23 +3,16 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 interface Props {
   src: string;
   title: string;
   description: string;
   liveLink?: string;
-  githubLink?: string;
 }
 
-const ProjectCard = ({
-  src,
-  title,
-  description,
-  liveLink,
-  githubLink,
-}: Props) => {
+const ProjectCard = ({ src, title, description, liveLink }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -51,15 +44,6 @@ const ProjectCard = ({
         </div>
 
         <div className="flex items-center gap-4 mt-2">
-          <a
-            href={githubLink || "#"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 bg-foreground/5 border border-foreground/10 rounded-xl text-foreground text-sm font-medium hover:bg-foreground/10 transition-all cursor-pointer"
-          >
-            <Github className="w-4 h-4" />
-            Code
-          </a>
           <a
             href={liveLink || "#"}
             target="_blank"

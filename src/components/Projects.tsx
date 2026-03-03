@@ -32,9 +32,9 @@ const Projects = () => {
         />
         <ProjectCard
           src="/green-env.jpg"
-          title="Green The Environment"
+          title="Forestry Reserve"
           description="A global NGO platform focused on environmental awareness and fundraising, built with Next.js and secure payment integration."
-          liveLink="https://greentheenvironment.vercel.app/"
+          liveLink="https://forestryreserve.vercel.app/"
         />
         <ProjectCard
           src="/pizza-paradise.jpg"
