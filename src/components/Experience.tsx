@@ -67,9 +67,9 @@ const Experience = () => {
             }`}
           >
             <div className="flex-1 w-full">
-              <div className="glass-card p-8 rounded-3xl border border-foreground/10 hover:border-primary/30 transition-all group relative">
+              <div className="glass-card p-8 rounded-3xl border border-foreground/10 hover:border-primary/30 transition-all group relative overflow-hidden">
                 <div
-                  className="absolute top-0 left-0 w-1 h-full rounded-l-3xl"
+                  className="absolute top-6 bottom-6 left-0 w-1.5 rounded-r-full"
                   style={{ backgroundColor: exp.color }}
                 />
                 <h2 className="text-2xl font-bold text-foreground mb-2">

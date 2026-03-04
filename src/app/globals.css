@@ -42,6 +42,7 @@
   --color-glass: var(--glass);
 
   --font-sans: var(--font-inter);
+  --font-dancing: var(--font-dancing);
 }
 
 @layer base {
@@ -116,6 +117,30 @@
   .animate-text-shimmer {
     background-size: 200% auto;
     animation: text-shimmer 3s linear infinite;
+  }
+
+  .running-glow {
+    background: linear-gradient(
+      90deg,
+      currentColor 0%,
+      var(--primary) 25%,
+      currentColor 50%,
+      var(--secondary) 75%,
+      currentColor 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: running-glow 10s linear infinite;
+  }
+}
+
+@keyframes running-glow {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
   }
 }
 

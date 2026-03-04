@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Dancing_Script } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  variable: "--font-dancing",
 });
 
 export const metadata: Metadata = {
@@ -32,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} font-sans antialiased overflow-x-hidden bg-background text-foreground transition-colors duration-300`}
+        className={`${inter.variable} ${dancingScript.variable} font-sans antialiased overflow-x-hidden bg-background text-foreground transition-colors duration-300`}
       >
         <ThemeProvider
           attribute="class"

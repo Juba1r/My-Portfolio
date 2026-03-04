@@ -22,7 +22,7 @@ export function ModeToggle() {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative inline-flex items-center justify-center p-2 rounded-xl transition-all duration-300 bg-glass border border-white/10 hover:border-primary/50 text-foreground"
+      className="relative inline-flex items-center justify-center p-2 rounded-xl transition-all duration-300 bg-glass border border-white/10 hover:border-primary/50 text-foreground cursor-pointer"
       aria-label="Toggle theme"
     >
       <AnimatePresence mode="wait">

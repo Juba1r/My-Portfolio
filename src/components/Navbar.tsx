@@ -77,8 +77,8 @@ const Navbar = () => {
               height={48}
               className="object-contain hover:scale-110 transition-transform duration-300"
             />
-            <span className="font-bold text-xl text-foreground tracking-tight hidden md:block transition-colors duration-300">
-              Jubair <span className="text-primary">Ibn</span> Khaled
+            <span className="text-2xl md:text-4xl text-transparent bg-clip-text running-glow font-dancing hidden md:block transition-all duration-500 py-1">
+              Jubair Ibn Khaled
             </span>
           </a>
 
@@ -92,7 +92,7 @@ const Navbar = () => {
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 className="text-sm font-medium text-foreground/70 hover:text-black dark:hover:text-white transition-colors relative group"
               >
-                <span className="relative z-10 group-hover:drop-shadow-[0_0_8px_rgba(112,66,248,0.4)] dark:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] transition-all duration-300">
+                <span className="relative z-10 group-hover:drop-shadow-[0_0_2px_rgba(0,0,0,0.2)] dark:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] transition-all duration-300">
                   {link.name}
                 </span>
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full shadow-[0_0_8px_rgba(112,66,248,0.5)]" />
@@ -149,7 +149,7 @@ const Navbar = () => {
             <ModeToggle />
 
             <button
-              className="md:hidden p-2 text-foreground"
+              className="md:hidden p-2 text-foreground cursor-pointer"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X /> : <Menu />}
@@ -173,7 +173,7 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   whileHover={{ scale: 1.05, x: 10 }}
-                  className="text-lg font-medium text-foreground/70 hover:text-primary dark:hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(112,66,248,0.4)] dark:hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
+                  className="text-lg font-medium text-foreground/70 hover:text-black dark:hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_2px_rgba(0,0,0,0.1)] dark:hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}

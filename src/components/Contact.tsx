@@ -189,7 +189,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.5, delay: 0.4 }}
-          className="glass-card p-10 rounded-3xl border border-foreground/10 shadow-2xl relative overflow-hidden group"
+          className="glass-card p-10 rounded-3xl border border-foreground/10 shadow-2xl relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-full blur-3xl -z-10" />
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
@@ -245,7 +245,7 @@ const Contact = () => {
             <button
               disabled={status === "Sending..."}
               type="submit"
-              className="group relative flex items-center justify-center gap-3 p-5 bg-primary text-white font-bold rounded-2xl overflow-hidden transition-all hover:shadow-[0_0_30px_rgba(112,66,248,0.4)] active:scale-95 disabled:opacity-50"
+              className="group relative flex items-center justify-center gap-3 p-5 bg-primary text-white font-bold rounded-2xl overflow-hidden transition-all hover:shadow-[0_0_30px_rgba(112,66,248,0.4)] active:scale-95 disabled:opacity-50 cursor-pointer"
             >
               <span className="relative z-10">{status || "Send Message"}</span>
               <Send

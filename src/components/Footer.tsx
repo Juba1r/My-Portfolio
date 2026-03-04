@@ -46,8 +46,8 @@ const Footer = () => {
                 height={48}
                 className="object-contain hover:scale-110 transition-transform duration-300"
               />
-              <span className="font-bold text-xl md:text-2xl text-foreground tracking-tight">
-                Jubair <span className="text-primary">Ibn</span> Khaled
+              <span className="text-2xl md:text-4xl text-transparent bg-clip-text running-glow font-dancing transition-all duration-500 py-1">
+                Jubair Ibn Khaled
               </span>
             </a>
             <p className="text-lg leading-relaxed max-w-[400px]">
@@ -146,7 +146,13 @@ const Footer = () => {
         </div>
 
         <div className="pt-12 border-t border-foreground/5 flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
-          <p>&copy; 2026 Jubair Ibn Khaled. All rights reserved.</p>
+          <p>
+            &copy; 2026{" "}
+            <span className="font-dancing running-glow text-transparent bg-clip-text text-lg inline-block">
+              Jubair Ibn Khaled
+            </span>
+            . All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
