@@ -11,7 +11,7 @@ const Skills = () => {
       id="skills"
       className="flex flex-col items-center justify-center gap-6 h-full relative overflow-hidden py-32 z-[20]"
     >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100%] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100%] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10 hidden md:block" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}

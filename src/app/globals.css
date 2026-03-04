@@ -54,6 +54,25 @@
     );
   }
 
+  @media (max-width: 768px) {
+    body {
+      background: var(
+        --background
+      ); /* Simplify background for mobile performance */
+    }
+
+    .glass-card {
+      backdrop-filter: none !important;
+      border-color: rgba(255, 255, 255, 0.05) !important;
+      box-shadow: none !important;
+      background: rgba(0, 0, 0, 0.8) !important;
+    }
+
+    * {
+      transition: none !important;
+    }
+  }
+
   /* Ensure text is always foreground color unless explicitly overridden */
   h1,
   h2,

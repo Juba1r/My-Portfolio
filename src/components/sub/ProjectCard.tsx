@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   motion,
   useMotionTemplate,
@@ -18,6 +18,15 @@ interface Props {
 }
 
 const ProjectCard = ({ src, title, description, liveLink }: Props) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -27,7 +36,16 @@ const ProjectCard = ({ src, title, description, liveLink }: Props) => {
   const rotateX = useSpring(useMotionValue(0), { stiffness: 100, damping: 30 });
   const rotateY = useSpring(useMotionValue(0), { stiffness: 100, damping: 30 });
 
+  const glowBackground = useMotionTemplate`
+    radial-gradient(
+      650px circle at ${mouseXSpring}px ${mouseYSpring}px,
+      rgba(112, 66, 248, 0.15),
+      transparent 80%
+    )
+  `;
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isMobile) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -51,38 +69,40 @@ const ProjectCard = ({ src, title, description, liveLink }: Props) => {
 
   return (
     <motion.div
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
+      style={
+        isMobile
+          ? {}
+          : {
+              rotateX,
+              rotateY,
+              transformStyle: "preserve-3d",
+            }
+      }
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      initial={{ opacity: 0, scale: 0.9 }}
+      initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       className="group relative h-[450px] w-full md:w-[400px] rounded-[2rem] bg-black/40 border border-white/10 overflow-hidden cursor-pointer"
     >
-      {/* Digital Grid Overlay */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[size:100%_2px,3px_100%]" />
+      {/* Digital Grid Overlay - Laptop Only */}
+      {!isMobile && (
+        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[size:100%_2px,3px_100%]" />
+      )}
 
-      {/* Dynamic Glow Following Move */}
-      <motion.div
-        className="pointer-events-none absolute -inset-px rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
-        style={{
-          background: useMotionTemplate`
-            radial-gradient(
-              650px circle at ${mouseXSpring}px ${mouseYSpring}px,
-              rgba(112, 66, 248, 0.15),
-              transparent 80%
-            )
-          `,
-        }}
-      />
+      {/* Dynamic Glow Following Move - Laptop Only */}
+      {!isMobile && (
+        <motion.div
+          className="pointer-events-none absolute -inset-px rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+          style={{
+            background: glowBackground,
+          }}
+        />
+      )}
 
-      {/* Card Content Wrapper for 3D */}
+      {/* Card Content Wrapper */}
       <div
-        style={{ transform: "translateZ(50px)" }}
+        style={isMobile ? {} : { transform: "translateZ(50px)" }}
         className="relative h-full flex flex-col p-6 z-20"
       >
         <div className="relative w-full h-52 rounded-2xl overflow-hidden mb-6 border border-white/5">
@@ -90,13 +110,17 @@ const ProjectCard = ({ src, title, description, liveLink }: Props) => {
             src={src}
             alt={title}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0"
+            className={`object-cover transition-transform duration-700 ${!isMobile ? "group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0" : ""}`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
           {/* Status Badge */}
-          <div className="absolute top-4 left-4 px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 flex items-center gap-2">
-            <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+          <div
+            className={`absolute top-4 left-4 px-3 py-1 bg-black/60 ${!isMobile ? "backdrop-blur-md" : ""} rounded-full border border-white/10 flex items-center gap-2`}
+          >
+            <div
+              className={`w-1.5 h-1.5 bg-green-500 rounded-full ${!isMobile ? "animate-pulse" : ""}`}
+            />
             <span className="text-[10px] font-mono text-white/70 uppercase tracking-widest">
               Active_Node
             </span>
@@ -143,9 +167,13 @@ const ProjectCard = ({ src, title, description, liveLink }: Props) => {
         </div>
       </div>
 
-      {/* Animated Corner Borders */}
-      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/30 rounded-tl-[2rem] group-hover:border-primary/80 transition-colors duration-500" />
-      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/30 rounded-br-[2rem] group-hover:border-primary/80 transition-colors duration-500" />
+      {/* Animated Corner Borders - Desktop Only */}
+      {!isMobile && (
+        <>
+          <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/30 rounded-tl-[2rem] group-hover:border-primary/80 transition-colors duration-500" />
+          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/30 rounded-br-[2rem] group-hover:border-primary/80 transition-colors duration-500" />
+        </>
+      )}
     </motion.div>
   );
 };

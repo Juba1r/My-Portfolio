@@ -7,9 +7,9 @@ import { Briefcase, Calendar, MapPin } from "lucide-react";
 const experiences = [
   {
     title: "Senior Full Stack Developer",
-    company: "Tech Innovators Inc.",
-    location: "Remote",
-    period: "2024 - Present",
+    company: "Green The Environment",
+    location: "Dhaka, Bangladesh",
+    period: "2025 - Present",
     description:
       "Leading a team of developers to build scalable enterprise solutions using Next.js and Microservices architecture.",
     color: "#7042f8",
@@ -18,16 +18,16 @@ const experiences = [
     title: "Freelance Developer",
     company: "Global Clients",
     location: "International",
-    period: "2022 - 2024",
+    period: "2024 - Present",
     description:
       "Delivered high-quality web applications for international clients, focusing on performance, SEO, and modern UI/UX.",
     color: "#00d4ff",
   },
   {
     title: "Frontend Developer",
-    company: "Creative Agency",
-    location: "London, UK",
-    period: "2020 - 2022",
+    company: "Parallaxlogic Infotech",
+    location: "Dhaka, Bangladesh",
+    period: "2020 - 2024",
     description:
       "Specialized in creating interactive frontend experiences using GSAP and Three.js.",
     color: "#ff00cc",
@@ -40,7 +40,7 @@ const Experience = () => {
       id="experience"
       className="flex flex-col items-center justify-center py-32 z-[20] relative overflow-hidden"
     >
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] -z-10 hidden md:block" />
 
       <motion.h1
         initial={{ opacity: 0, y: 20 }}

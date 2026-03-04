@@ -128,7 +128,7 @@ const PortraitPortal = () => {
       >
         <svg
           viewBox="0 0 100 100"
-          className="w-full h-full drop-shadow-[0_0_20px_rgba(6,182,212,0.4)] overflow-visible"
+          className={`w-full h-full ${!isMobile ? "drop-shadow-[0_0_20px_rgba(6,182,212,0.4)]" : ""} overflow-visible`}
         >
           <defs>
             <linearGradient id="portalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -144,7 +144,7 @@ const PortraitPortal = () => {
           <path
             d={trianglePath}
             fill="rgba(8, 10, 15, 0.45)"
-            style={{ backdropFilter: "blur(16px)" }}
+            style={!isMobile ? { backdropFilter: "blur(16px)" } : {}}
           />
 
           <path
@@ -164,6 +164,7 @@ const PortraitPortal = () => {
             animate={{ strokeDashoffset: [0, -200] }}
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
             filter="url(#portalGlow)"
+            className={isMobile ? "opacity-40" : "opacity-90"}
           />
         </svg>
 
@@ -172,36 +173,51 @@ const PortraitPortal = () => {
           style={{ clipPath: `path("${trianglePath}")` }}
         >
           <motion.div
-            className="w-[250%] h-[250%] bg-[conic-gradient(from_0deg,transparent,#06b6d4,#8b5cf6,transparent,#06b6d4,transparent)] opacity-40"
+            className={`w-[250%] h-[250%] bg-[conic-gradient(from_0deg,transparent,#06b6d4,#8b5cf6,transparent,#06b6d4,transparent)] ${!isMobile ? "opacity-40" : "opacity-15"}`}
             animate={{ rotate: 360 }}
-            transition={{ duration: 7, ease: "linear", repeat: Infinity }}
+            transition={{
+              duration: isMobile ? 12 : 7,
+              ease: "linear",
+              repeat: Infinity,
+            }}
           />
         </div>
 
         <motion.div
-          className="absolute w-48 h-48 border-[1.5px] border-cyan-400 rounded-full blur-[2px] opacity-40"
+          className={`absolute w-48 h-48 border-[1.5px] border-cyan-400 rounded-full blur-[2px] ${isMobile ? "opacity-15" : "opacity-40"}`}
           style={{ scale: energyRingScale, opacity: energyRingOpacity }}
         />
 
         <motion.div
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
-          animate={{ opacity: [0.6, 1, 0.6], scale: [1, 1.05, 1] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          animate={{
+            opacity: [0.4, 0.8, 0.4],
+            scale: isMobile ? 1 : [1, 1.05, 1],
+          }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
-          <div className="w-full h-full bg-cyan-500/15 blur-[60px] rounded-full" />
+          <div
+            className={`w-full h-full bg-cyan-500/20 ${!isMobile ? "blur-[60px]" : "blur-[30px]"} rounded-full`}
+          />
         </motion.div>
       </motion.div>
 
       <motion.div
         className="absolute bottom-[20%] md:bottom-[25%] w-32 h-[450px] z-20 origin-bottom"
-        style={{ opacity: beamOpacity }}
+        style={{ opacity: isMobile ? 0.2 : beamOpacity }}
       >
-        <div className="w-full h-full bg-gradient-to-t from-cyan-400/50 via-violet-500/10 to-transparent blur-2xl" />
+        <div
+          className={`w-full h-full bg-gradient-to-t from-cyan-400/50 via-violet-500/10 to-transparent ${!isMobile ? "blur-2xl" : "blur-lg"}`}
+        />
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            className="w-full h-full bg-[radial-gradient(circle,white_1px,transparent_1px)] bg-[size:40px_40px] opacity-30"
+            className={`w-full h-full bg-[radial-gradient(circle,white_1px,transparent_1px)] bg-[size:40px_40px] ${isMobile ? "opacity-10" : "opacity-30"}`}
             animate={{ y: [0, -450] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            transition={{
+              duration: isMobile ? 3 : 2,
+              repeat: Infinity,
+              ease: "linear",
+            }}
           />
         </div>
       </motion.div>
@@ -214,41 +230,46 @@ const PortraitPortal = () => {
           translateY: yReveal,
           opacity: opacityReveal,
           scale: scaleReveal,
-          filter: blurReveal,
+          filter: isMobile ? "none" : blurReveal,
           rotateX: isMobile ? 0 : rotateX,
           rotateY: isMobile ? 0 : rotateY,
         }}
       >
         <motion.div
-          animate={{ y: [-6, 6, -6] }}
+          animate={isMobile ? {} : { y: [-6, 6, -6] }}
           transition={{ duration: 5, ease: "easeInOut", repeat: Infinity }}
           className="w-full h-full relative group"
         >
-          <div className="absolute -inset-1 bg-gradient-to-tr from-cyan-500/20 to-violet-500/20 rounded-[2.2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10" />
+          {!isMobile && (
+            <div className="absolute -inset-1 bg-gradient-to-tr from-cyan-500/20 to-violet-500/20 rounded-[2.2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10" />
+          )}
 
-          <div className="relative w-full h-full overflow-hidden rounded-[2rem] border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+          <div
+            className={`relative w-full h-full overflow-hidden rounded-[2rem] border border-white/10 ${!isMobile ? "shadow-[0_0_50px_rgba(0,0,0,0.5)]" : ""}`}
+          >
             <Image
               src="/Jubair's pic.png"
               alt="Jubair Ibn Khaled"
               width={400}
               height={500}
-              className="w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 transition-all duration-1000 brightness-[1.05]"
+              className={`w-full h-full object-cover ${!isMobile ? "grayscale-[15%] group-hover:grayscale-0" : ""} transition-all duration-1000 brightness-[1.1]`}
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/5 pointer-events-none" />
           </div>
         </motion.div>
       </motion.div>
 
-      <motion.div
-        className="absolute inset-0 z-50 pointer-events-none"
-        style={{
-          x: isMobile ? 0 : haloShiftX,
-          y: isMobile ? 0 : haloShiftY,
-          background:
-            "radial-gradient(circle at center, rgba(112, 66, 248, 0.06) 0%, transparent 65%)",
-        }}
-      />
+      {!isMobile && (
+        <motion.div
+          className="absolute inset-0 z-50 pointer-events-none"
+          style={{
+            x: isMobile ? 0 : haloShiftX,
+            y: isMobile ? 0 : haloShiftY,
+            background:
+              "radial-gradient(circle at center, rgba(112, 66, 248, 0.06) 0%, transparent 65%)",
+          }}
+        />
+      )}
     </div>
   );
 };

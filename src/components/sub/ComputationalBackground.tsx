@@ -239,6 +239,10 @@ const ComputationalBackground = ({ isMobile }: { isMobile: boolean }) => {
     };
 
     animationFrame = requestAnimationFrame(render);
+    if (isMobile) {
+      cancelAnimationFrame(animationFrame);
+      return;
+    }
     return () => cancelAnimationFrame(animationFrame);
   }, [dimensions, isMobile]);
 
