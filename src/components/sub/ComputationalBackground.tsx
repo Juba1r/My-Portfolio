@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import { useScroll, useVelocity, useSpring, useTransform } from "framer-motion";
 
 const FRAGMENTS = [
   "useState()",
@@ -57,14 +56,6 @@ interface Path {
 const ComputationalBackground = ({ isMobile }: { isMobile: boolean }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  // 🔹 3. Scroll-Speed Reactive Calculations
-  const { scrollYProgress } = useScroll();
-  const scrollVelocity = useVelocity(scrollYProgress);
-  const smoothVelocity = useSpring(scrollVelocity, {
-    stiffness: 100,
-    damping: 30,
-  });
 
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const fragments = useRef<Fragment[]>([]);
@@ -136,19 +127,9 @@ const ComputationalBackground = ({ isMobile }: { isMobile: boolean }) => {
     const render = (time: number) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // 🔹 3. Scroll-Speed Reactive Calculations
-      let velocity = Math.abs(smoothVelocity.get());
-      if (isMobile) velocity = 0; // Auto-disable boost on mobile/low-performance devices
-      const speedMult = 1 + Math.min(velocity * 8, 0.4); // max 1.4x
-      const brightnessBoost = Math.min(velocity * 0.4, 0.05); // max 5%
-
-      // Velocity-triggered pulse
-      if (velocity > 0.01) {
-        pulseIntensity.current = Math.max(
-          pulseIntensity.current,
-          Math.min(velocity * 2, 1),
-        );
-      }
+      // 🔹 3. Static Speed Calculations (Removed Scroll-Speed Reaction)
+      const speedMult = 1;
+      const brightnessBoost = 0;
 
       // System Pulse Logic (Periodic)
       if (time - lastPulseTime.current > 15000) {
@@ -194,7 +175,7 @@ const ComputationalBackground = ({ isMobile }: { isMobile: boolean }) => {
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         const pAlpha = p.opacity * (1 + pulseIntensity.current);
         ctx.fillStyle = `rgba(6, 182, 212, ${pAlpha})`;
-        ctx.shadowBlur = velocity > 0.005 ? 8 : 2;
+        ctx.shadowBlur = 2;
         ctx.shadowColor = "#06b6d4";
         ctx.fill();
         ctx.shadowBlur = 0;
@@ -259,7 +240,7 @@ const ComputationalBackground = ({ isMobile }: { isMobile: boolean }) => {
 
     animationFrame = requestAnimationFrame(render);
     return () => cancelAnimationFrame(animationFrame);
-  }, [dimensions, isMobile, smoothVelocity]);
+  }, [dimensions, isMobile]);
 
   return (
     <div

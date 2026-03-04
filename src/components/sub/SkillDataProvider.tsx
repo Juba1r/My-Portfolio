@@ -73,29 +73,35 @@ const SkillDataProvider = ({ src, width, height, index, name }: Props) => {
         stiffness: 260,
         damping: 20,
       }}
-      whileHover={{ y: -10 }}
-      className="flex items-center justify-center"
+      whileHover={{ y: -10, scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="flex items-center justify-center p-2"
     >
-      <div className="relative group cursor-pointer w-28 h-28 md:w-36 md:h-36 rounded-3xl flex flex-col items-center justify-center bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary/50 transition-all duration-300 shadow-xl hover:shadow-primary/20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-        <div className="w-12 h-12 mb-3 relative group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-          {src && !imageError ? (
-            <Image
-              src={src}
-              alt={name}
-              width={width}
-              height={height}
-              className="object-contain"
-              onError={() => setImageError(true)}
-            />
-          ) : (
-            <FallbackIcon className="w-full h-full text-primary" />
-          )}
+      <div className="relative group cursor-pointer w-28 h-28 md:w-36 md:h-36 rounded-3xl flex flex-col items-center justify-center bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary/50 transition-all duration-300 shadow-xl overflow-visible">
+        {/* Hover Glow Behind */}
+        <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+
+        <div className="relative w-full h-full flex flex-col items-center justify-center rounded-3xl z-10 overflow-hidden bg-black/20">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="w-12 h-12 mb-3 relative group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+            {src && !imageError ? (
+              <Image
+                src={src}
+                alt={name}
+                width={width}
+                height={height}
+                className="object-contain"
+                onError={() => setImageError(true)}
+              />
+            ) : (
+              <FallbackIcon className="w-full h-full text-primary" />
+            )}
+          </div>
+          <span className="text-[10px] md:text-sm font-bold text-gray-400 group-hover:text-white text-center px-2 z-10 break-words w-full uppercase tracking-tighter">
+            {name}
+          </span>
+          <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left shadow-[0_0_15px_rgba(112,66,248,0.8)]" />
         </div>
-        <span className="text-[10px] md:text-sm font-bold text-gray-400 group-hover:text-white text-center px-2 z-10 break-words w-full uppercase tracking-tighter">
-          {name}
-        </span>
-        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
       </div>
     </motion.div>
   );

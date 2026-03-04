@@ -1,43 +1,20 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  useMotionValue,
-} from "framer-motion";
+import { motion, useTransform, useSpring, useMotionValue } from "framer-motion";
 import Image from "next/image";
-import ComputationalBackground from "./ComputationalBackground";
 
 const PortraitPortal = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Scroll-based animations
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "center center"],
-  });
-
-  // Use a damped scroll progress for smoother scrub
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-  });
-
-  // 🔹 1. Scroll-Based Portrait Emergence (Foundation Layer)
-  const yReveal = useTransform(smoothProgress, [0, 1], [160, 0]);
-  const opacityReveal = useTransform(smoothProgress, [0, 0.8], [0, 1]);
-  const scaleReveal = useTransform(smoothProgress, [0, 1], [0.88, 1]);
-  const blurReveal = useTransform(
-    smoothProgress,
-    [0, 1],
-    ["blur(12px)", "blur(0px)"],
-  );
-  const brightnessReveal = useTransform(smoothProgress, [0, 1], [0.85, 1]);
+  // 🔹 1. Portrait Appearance (Static now, removed scroll reveal)
+  const yReveal = 0;
+  const opacityReveal = 1;
+  const scaleReveal = 1;
+  const blurReveal = "blur(0px)";
+  const brightnessReveal = 1;
 
   // 🔹 2. Depth-Based Mouse Parallax
   const springConfig = { stiffness: 100, damping: 30 };
@@ -111,15 +88,11 @@ const PortraitPortal = () => {
     };
   }, [isMobile, mouseX, mouseY]);
 
-  // 🔹 3. Portal Opening Animation
-  const beamOpacity = useTransform(smoothProgress, [0.4, 0.7, 1], [0, 0.7, 0]);
-  const triangleScale = useTransform(smoothProgress, [0, 0.5], [0.9, 1]);
-  const energyRingScale = useTransform(smoothProgress, [0.2, 0.8], [0.6, 1.2]);
-  const energyRingOpacity = useTransform(
-    smoothProgress,
-    [0.2, 0.5, 0.8],
-    [0, 1, 0],
-  );
+  // 🔹 3. Portal Opening Animation (Static now, removed scroll reveal)
+  const beamOpacity = 0.4;
+  const triangleScale = 1;
+  const energyRingScale = 1;
+  const energyRingOpacity = 0.5;
 
   const trianglePath =
     "M 50 10 L 88 84 Q 90 88 85 88 L 15 88 Q 10 88 12 84 L 50 10 Z";
@@ -141,16 +114,7 @@ const PortraitPortal = () => {
         }}
       />
 
-      {/* 🔹 Layer: Computational Background (Code fragments + Data flow) */}
-      <motion.div
-        className="absolute inset-0 z-[5]"
-        style={{
-          x: isMobile ? 0 : fragmentShiftX,
-          y: isMobile ? 0 : fragmentShiftY,
-        }}
-      >
-        <ComputationalBackground isMobile={isMobile} />
-      </motion.div>
+      {/* 🔹 Layer: Computational Background removed - now global in page.tsx */}
 
       <motion.div
         className="absolute bottom-[10%] md:bottom-[15%] w-[320px] h-[320px] md:w-[400px] md:h-[400px] z-10 flex items-center justify-center opacity-80"

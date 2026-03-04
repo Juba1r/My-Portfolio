@@ -56,7 +56,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative flex flex-col min-h-screen w-full items-center justify-center overflow-hidden z-[20]">
+    <div className="relative flex flex-col min-h-[calc(100vh-112px)] w-full items-center justify-center overflow-hidden z-[20] pb-32 md:pb-40">
       {/* Background Accent */}
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px] animate-pulse-slow" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/10 rounded-full blur-[120px] animate-pulse-slow" />
@@ -83,9 +83,9 @@ const Hero = () => {
             variants={itemVariants}
             className="text-4xl sm:text-6xl md:text-8xl font-black text-foreground leading-tight tracking-tight px-2"
           >
-            Crafting Digital
+            Architecting High-Performance
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent animate-text-shimmer">
-              Masterpieces
+              Digital Masterpieces
             </span>
           </motion.h1>
 
