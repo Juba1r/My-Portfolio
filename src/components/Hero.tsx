@@ -10,6 +10,7 @@ import {
   Mail,
   Facebook,
 } from "lucide-react";
+import PortraitPortal from "./sub/PortraitPortal";
 
 const WhatsAppIcon = (props: any) => (
   <svg
@@ -64,8 +65,9 @@ const Hero = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="flex flex-col items-center justify-center w-full px-4 md:px-20 z-[20] py-20 md:py-0"
+        className="flex flex-col items-center justify-center w-full px-4 md:px-20 z-[20] py-10 md:py-0"
       >
+        <PortraitPortal />
         <div className="flex flex-col gap-6 md:gap-8 justify-center items-center text-center w-full max-w-[900px]">
           <motion.div
             variants={itemVariants}
