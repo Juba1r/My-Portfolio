@@ -6,7 +6,7 @@ import { Briefcase, Calendar, MapPin } from "lucide-react";
 
 const experiences = [
   {
-    title: "Senior Full Stack Developer",
+    title: "Full Stack Developer",
     company: "Green The Environment",
     location: "Dhaka, Bangladesh",
     period: "2025 - Present",
@@ -27,7 +27,7 @@ const experiences = [
     title: "Frontend Developer",
     company: "Parallaxlogic Infotech",
     location: "Dhaka, Bangladesh",
-    period: "2020 - 2024",
+    period: "2023 - 2024",
     description:
       "Specialized in creating interactive frontend experiences using GSAP and Three.js.",
     color: "#ff00cc",
