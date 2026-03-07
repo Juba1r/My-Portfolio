@@ -45,7 +45,7 @@ const Projects = () => {
         <ProjectCard
           src="/payside thumnail.png"
           title="Payside"
-          description="A comprehensive content management dashboard for managing digital assets and user data efficiently."
+          description="A high-performance fintech business platform enabling BNPL solutions with a proprietary high-frequency payment engine and post-quantum security."
           liveLink="https://payside.vercel.app"
         />
       </div>

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { TypingContainer, TypingSegment } from "./sub/TypingText";
 
 const About = () => {
   return (
@@ -28,35 +29,54 @@ const About = () => {
           className="glass-card p-8 md:p-12 rounded-3xl max-w-[800px] border border-foreground/10 relative overflow-hidden group"
         >
           <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
-          <p className="text-xl text-foreground/70 mb-6 leading-relaxed">
-            I am a{" "}
-            <span className="text-foreground font-bold">
-              visionary Full Stack Developer
-            </span>{" "}
-            with a passion for building software that matters. My journey began
-            with a curiosity for how things work, leading me to master the art
-            of coding.
-          </p>
-          <p className="text-xl text-foreground/70 mb-6 leading-relaxed">
-            With expertise in{" "}
-            <span className="text-secondary font-bold">Next.js</span>,{" "}
-            <span className="text-primary font-bold">React</span>, and modern
-            web technologies, I craft user experiences that are not only
-            functional but also{" "}
-            <span className="text-accent font-bold italic">
-              visually stunning
-            </span>
-            .
-          </p>
-          <p className="text-xl text-foreground/70 leading-relaxed">
-            I believe in the power of{" "}
-            <span className="text-foreground font-semibold">collaboration</span>{" "}
-            and{" "}
-            <span className="text-foreground font-semibold">innovation</span>.
-            Whether it's a small project or a large-scale enterprise
-            application, I bring the same level of dedication and technical
-            excellence.
-          </p>
+
+          <TypingContainer
+            className="text-xl text-foreground/70 mb-6 leading-relaxed"
+            delay={0.4}
+          >
+            <TypingSegment text="I am a " />
+            <TypingSegment
+              text="visionary Full Stack Developer"
+              className="text-foreground font-bold"
+            />
+            <TypingSegment text=" with a passion for building software that matters. My journey began with a curiosity for how things work, leading me to master the art of coding." />
+          </TypingContainer>
+
+          <TypingContainer
+            className="text-xl text-foreground/70 mb-6 leading-relaxed"
+            delay={0.8}
+          >
+            <TypingSegment text="With expertise in " />
+            <TypingSegment
+              text="Next.js"
+              className="text-secondary font-bold"
+            />
+            <TypingSegment text=", " />
+            <TypingSegment text="React" className="text-primary font-bold" />
+            <TypingSegment text=", and modern web technologies, I craft user experiences that are not only functional but also " />
+            <TypingSegment
+              text="visually stunning"
+              className="text-accent font-bold italic"
+            />
+            <TypingSegment text="." />
+          </TypingContainer>
+
+          <TypingContainer
+            className="text-xl text-foreground/70 leading-relaxed"
+            delay={1.2}
+          >
+            <TypingSegment text="I believe in the power of " />
+            <TypingSegment
+              text="collaboration"
+              className="text-foreground font-semibold"
+            />
+            <TypingSegment text=" and " />
+            <TypingSegment
+              text="innovation"
+              className="text-foreground font-semibold"
+            />
+            <TypingSegment text=". Whether it's a small project or a large-scale enterprise application, I bring the same level of dedication and technical excellence." />
+          </TypingContainer>
         </motion.div>
       </div>
     </section>

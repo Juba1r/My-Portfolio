@@ -11,6 +11,7 @@ import {
   Facebook,
 } from "lucide-react";
 import PortraitPortal from "./sub/PortraitPortal";
+import { TypingContainer, TypingSegment } from "./sub/TypingText";
 
 const WhatsAppIcon = (props: any) => (
   <svg
@@ -89,18 +90,22 @@ const Hero = () => {
             </span>
           </motion.h1>
 
-          <motion.p
-            variants={itemVariants}
+          <TypingContainer
             className="text-lg md:text-2xl text-foreground/60 max-w-[700px] leading-relaxed px-4 md:px-0"
+            delay={1.2}
           >
-            Deeply passionate about building high-performance,
-            <span className="text-primary font-semibold"> scalable</span>, and
-            <span className="text-secondary font-semibold">
-              {" "}
-              visually stunning
-            </span>{" "}
-            applications that push the boundaries of the web.
-          </motion.p>
+            <TypingSegment text="Deeply passionate about building high-performance, " />
+            <TypingSegment
+              text="scalable"
+              className="text-primary font-semibold"
+            />
+            <TypingSegment text=", and " />
+            <TypingSegment
+              text="visually stunning"
+              className="text-secondary font-semibold"
+            />
+            <TypingSegment text=" applications that push the boundaries of the web." />
+          </TypingContainer>
 
           <motion.div
             variants={itemVariants}

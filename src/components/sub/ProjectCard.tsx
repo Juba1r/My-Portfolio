@@ -83,7 +83,7 @@ const ProjectCard = ({ src, title, description, liveLink }: Props) => {
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      className="group relative h-[450px] w-full md:w-[400px] rounded-[2rem] bg-black/40 border border-white/10 overflow-hidden cursor-pointer"
+      className="group relative h-[450px] w-full md:w-[400px] rounded-[2rem] bg-black/60 dark:bg-black/40 border border-white/10 overflow-hidden cursor-pointer selection:bg-primary/30"
     >
       {/* Digital Grid Overlay - Laptop Only */}
       {!isMobile && (
@@ -135,7 +135,7 @@ const ProjectCard = ({ src, title, description, liveLink }: Props) => {
             <Terminal className="w-5 h-5 text-primary/40 group-hover:text-primary transition-colors" />
           </div>
 
-          <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors leading-relaxed line-clamp-3 font-medium">
+          <p className="text-sm text-gray-300 group-hover:text-primary transition-colors leading-relaxed line-clamp-3 font-medium">
             {description}
           </p>
 
