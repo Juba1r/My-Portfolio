@@ -7,8 +7,9 @@
   --primary-glow: rgba(112, 66, 248, 0.1);
   --secondary: #00d4ff;
   --accent: #ff00cc;
-  --glass: rgba(255, 255, 255, 0.6);
-  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --portal-bg: rgba(255, 255, 255, 0.4);
 }
 
 .dark {
@@ -20,17 +21,7 @@
   --accent: #ff00cc;
   --glass: rgba(15, 5, 45, 0.4);
   --glass-border: rgba(255, 255, 255, 0.1);
-}
-
-.light {
-  --background: #ffffff;
-  --foreground: #030014;
-  --primary: #7042f8;
-  --primary-glow: rgba(112, 66, 248, 0.15);
-  --secondary: #00d4ff;
-  --accent: #ff00cc;
-  --glass: rgba(255, 255, 255, 0.6);
-  --glass-border: rgba(0, 0, 0, 0.08);
+  --portal-bg: rgba(8, 10, 15, 0.45);
 }
 
 @theme inline {
@@ -63,10 +54,10 @@
     }
 
     .glass-card {
-      backdrop-filter: none !important;
-      border-color: rgba(255, 255, 255, 0.05) !important;
-      box-shadow: none !important;
-      background: rgba(0, 0, 0, 0.8) !important;
+      backdrop-filter: blur(10px) !important;
+      border-color: var(--glass-border) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+      background: var(--glass) !important;
     }
 
     * {
@@ -94,12 +85,9 @@
 
 @layer utilities {
   .glass-card {
-    @apply backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.05) 0%,
-      rgba(255, 255, 255, 0) 100%
-    );
+    @apply backdrop-blur-xl border-1 shadow-[0_8px_32px_0_rgba(0,0,0,0.1)];
+    background: var(--glass);
+    border-color: var(--glass-border);
   }
 
   .text-gradient {
@@ -196,7 +184,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #030014;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {

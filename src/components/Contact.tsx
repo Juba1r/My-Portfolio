@@ -196,7 +196,7 @@ const Contact = () => {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="name"
-                className="text-gray-400 text-sm font-medium uppercase tracking-widest"
+                className="text-foreground/50 text-sm font-medium uppercase tracking-widest"
               >
                 Name
               </label>
@@ -212,7 +212,7 @@ const Contact = () => {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="email"
-                className="text-gray-400 text-sm font-medium uppercase tracking-widest"
+                className="text-foreground/50 text-sm font-medium uppercase tracking-widest"
               >
                 Email Address
               </label>
@@ -228,7 +228,7 @@ const Contact = () => {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="message"
-                className="text-gray-400 text-sm font-medium uppercase tracking-widest"
+                className="text-foreground/50 text-sm font-medium uppercase tracking-widest"
               >
                 Message
               </label>

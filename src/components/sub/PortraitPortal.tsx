@@ -143,7 +143,7 @@ const PortraitPortal = () => {
 
           <path
             d={trianglePath}
-            fill="rgba(8, 10, 15, 0.45)"
+            fill="var(--portal-bg)"
             style={!isMobile ? { backdropFilter: "blur(16px)" } : {}}
           />
 

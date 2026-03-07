@@ -67,7 +67,7 @@ const Experience = () => {
             }`}
           >
             <div className="flex-1 w-full">
-              <div className="glass-card p-8 rounded-3xl border border-foreground/10 hover:border-primary/30 transition-all group relative overflow-hidden">
+              <div className="glass-card p-8 rounded-3xl border-none hover:border-1 hover:border-primary/30 transition-all group relative overflow-hidden">
                 <div
                   className="absolute top-6 bottom-6 left-0 w-1.5 rounded-r-full"
                   style={{ backgroundColor: exp.color }}
@@ -79,14 +79,14 @@ const Experience = () => {
                   <span className="flex items-center gap-1 text-primary">
                     <Briefcase className="w-4 h-4" /> {exp.company}
                   </span>
-                  <span className="flex items-center gap-1 text-foreground/50">
+                  <span className="flex items-center gap-1 text-foreground/70">
                     <Calendar className="w-4 h-4" /> {exp.period}
                   </span>
-                  <span className="flex items-center gap-1 text-foreground/50">
+                  <span className="flex items-center gap-1 text-foreground/70">
                     <MapPin className="w-4 h-4" /> {exp.location}
                   </span>
                 </div>
-                <p className="text-foreground/60 leading-relaxed text-lg">
+                <p className="text-foreground/80 leading-relaxed text-lg">
                   {exp.description}
                 </p>
               </div>

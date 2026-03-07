@@ -22,7 +22,7 @@ const Skills = () => {
         <h1 className="text-4xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#b49bff] via-[#00d4ff] to-[#ff00cc] mb-4 text-center">
           My Tech Stack
         </h1>
-        <p className="text-gray-400 text-lg md:text-xl max-w-[600px] px-6">
+        <p className="text-foreground/60 text-lg md:text-xl max-w-[600px] px-6">
           A suite of modern technologies I use to build world-class digital
           experiences.
         </p>

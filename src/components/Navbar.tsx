@@ -64,7 +64,7 @@ const Navbar = () => {
         <nav
           className={`flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-500 ${
             scrolled
-              ? "bg-glass border border-white/10 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]"
+              ? "glass-card border-none"
               : "bg-transparent border border-transparent"
           }`}
         >
@@ -90,9 +90,9 @@ const Navbar = () => {
                 href={link.href}
                 whileHover={{ scale: 1.15, y: -2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                className="text-sm font-medium text-foreground/70 hover:text-black dark:hover:text-white transition-colors relative group"
+                className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors relative group"
               >
-                <span className="relative z-10 group-hover:drop-shadow-[0_0_2px_rgba(0,0,0,0.2)] dark:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] transition-all duration-300">
+                <span className="relative z-10 group-hover:drop-shadow-[0_0_8px_var(--primary)] transition-all duration-300">
                   {link.name}
                 </span>
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full shadow-[0_0_8px_rgba(112,66,248,0.5)]" />
@@ -167,13 +167,13 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-full left-0 w-full px-6 py-4 md:hidden"
           >
-            <div className="bg-glass border border-white/10 backdrop-blur-xl rounded-2xl p-4 flex flex-col gap-4">
+            <div className="glass-card border-none p-4 flex flex-col gap-4">
               {navLinks.map((link) => (
                 <motion.a
                   key={link.name}
                   href={link.href}
                   whileHover={{ scale: 1.05, x: 10 }}
-                  className="text-lg font-medium text-foreground/70 hover:text-black dark:hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_2px_rgba(0,0,0,0.1)] dark:hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
+                  className="text-lg font-medium text-foreground/70 hover:text-primary transition-all duration-300"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}

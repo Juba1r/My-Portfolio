@@ -87,7 +87,7 @@ const SkillDataProvider = ({ src, width, height, index, name }: Props) => {
       className="flex items-center justify-center p-2"
     >
       <div
-        className={`relative group cursor-pointer w-28 h-28 md:w-36 md:h-36 rounded-3xl flex flex-col items-center justify-center bg-white/5 ${!isMobile ? "backdrop-blur-md border border-white/10 shadow-xl" : "border border-white/5"} hover:border-primary/50 transition-all duration-300 overflow-visible`}
+        className={`relative group cursor-pointer w-28 h-28 md:w-36 md:h-36 rounded-3xl flex flex-col items-center justify-center glass-card hover:border-primary/50 transition-all duration-300 overflow-visible`}
       >
         {/* Hover Glow Behind - Laptop Only */}
         {!isMobile && (
@@ -95,7 +95,7 @@ const SkillDataProvider = ({ src, width, height, index, name }: Props) => {
         )}
 
         <div
-          className={`relative w-full h-full flex flex-col items-center justify-center rounded-3xl z-10 overflow-hidden ${isMobile ? "bg-black/40" : "bg-black/20"}`}
+          className={`relative w-full h-full flex flex-col items-center justify-center rounded-3xl z-10 overflow-hidden bg-transparent`}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="w-12 h-12 mb-3 relative group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
@@ -112,7 +112,7 @@ const SkillDataProvider = ({ src, width, height, index, name }: Props) => {
               <FallbackIcon className="w-full h-full text-primary" />
             )}
           </div>
-          <span className="text-[10px] md:text-sm font-bold text-gray-400 group-hover:text-white text-center px-2 z-10 break-words w-full uppercase tracking-tighter">
+          <span className="text-[10px] md:text-sm font-bold text-foreground/50 group-hover:text-primary text-center px-2 z-10 break-words w-full uppercase tracking-tighter">
             {name}
           </span>
           {!isMobile && (

@@ -63,7 +63,7 @@ const CompilingStatus = () => {
           )}
         </div>
 
-        <div className="relative w-full h-[3px] bg-foreground/5 rounded-full overflow-hidden border border-foreground/10">
+        <div className="relative w-full h-[3px] bg-foreground/10 rounded-full overflow-hidden border border-foreground/10">
           <motion.div
             style={{ width: barWidth }}
             className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan-500 via-primary to-violet-500"
@@ -71,7 +71,7 @@ const CompilingStatus = () => {
         </div>
 
         <div className="flex flex-col gap-0.5 mt-1">
-          <div className="flex justify-between text-foreground/40 text-[8px]">
+          <div className="flex justify-between text-foreground/60 text-[8px]">
             <span>Modules: {displayPercent}%</span>
             <span>Status: {status}</span>
           </div>
