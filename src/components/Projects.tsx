@@ -26,26 +26,27 @@ const Projects = () => {
       </motion.div>
       <div className="h-full w-full flex flex-col md:flex-row gap-10 px-10 justify-center flex-wrap">
         <ProjectCard
-          src="/portfolio-tech.jpg"
+          src="/portfolio thumbnail.png"
           title="Modern Next.js Portfolio"
           description="A futuristic portfolio built with Next.js 15, TailwindCSS v4, Framer Motion and Three.js, featuring interactive 3D elements."
         />
         <ProjectCard
-          src="/green-env.jpg"
+          src="/forestry reserve thumbnail.png"
           title="Forestry Reserve"
           description="A global NGO platform focused on environmental awareness and fundraising, built with Next.js and secure payment integration."
           liveLink="https://forestryreserve.vercel.app/"
         />
         <ProjectCard
-          src="/pizza-paradise.jpg"
+          src="/pizza paradise thumbnail.png"
           title="Pizza Paradise"
           description="Interactive food ordering platform with real-time updates, smoke animations, and a mouth-watering UI."
           liveLink="https://pizzaparadisepp.vercel.app/"
         />
         <ProjectCard
-          src="/cms-dashboard.jpg"
-          title="CMS Dashboard"
+          src="/payside thumnail.png"
+          title="Payside"
           description="A comprehensive content management dashboard for managing digital assets and user data efficiently."
+          liveLink="https://payside.vercel.app"
         />
       </div>
     </div>
